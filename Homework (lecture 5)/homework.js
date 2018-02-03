@@ -18,10 +18,24 @@ LinkedList.prototype.get= function(value) {
     var i =0;
     currentObj = obj;
     while (i<value){
-    currentObj=currentObj.next;
-    i++;
+        currentObj=currentObj.next;
+        i++;
     }
     return currentObj.value;
+}
+// removes last element from the list
+LinkedList.prototype.pop = function() {
+    var position=0;
+    currentObj = obj;
+    while(position<this.length-2) {
+        currentObj=currentObj.next;
+        position++;
+    }
+    delElement =currentObj.value;
+    currentObj.next = null;
+    this.length--
+    console.log(delElement+" element is removed from LinkedList");
+    console.log("List length is " + this.length);
 }
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);

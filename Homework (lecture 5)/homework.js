@@ -30,18 +30,22 @@ LinkedList.prototype.get= function(value) {
 }
 // removes last element from the list
 LinkedList.prototype.pop = function() {
-    var position=0;
-    currentObj = obj;
-    while(position<this.length-2) {
-        currentObj=currentObj.next;
-        position++;
+    if (this.length==0){
+    console.log('Error: It is impossible to remove element. The list is empty')
+    } else {
+        var position=0;
+        currentObj = obj;
+        while(position<this.length-2) {
+            currentObj=currentObj.next;
+            position++;
+        }
+        delElement =currentObj.value;
+        currentObj.next = null;
+        this.length--
+        console.log(delElement+" element is removed from LinkedList");
+        console.log("List length is " + this.length);
+        list.toString();
     }
-    delElement =currentObj.value;
-    currentObj.next = null;
-    this.length--
-    console.log(delElement+" element is removed from LinkedList");
-    console.log("List length is " + this.length);
-    list.toString();
 }
 // adds element or elements at the end of the list
 LinkedList.prototype.push = function() {

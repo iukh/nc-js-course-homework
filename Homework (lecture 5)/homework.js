@@ -2,7 +2,7 @@
   you should implement data structure called Linked list (in can be doubly linked or singly linked)
   and all methods that listed below
  */
-function LinkedList(arr) {
+function LinkedList() {
     this.length = 0;
     obj = {next: null};
     for(var i=arr.length;i;--i) {
@@ -36,6 +36,28 @@ LinkedList.prototype.pop = function() {
     this.length--
     console.log(delElement+" element is removed from LinkedList");
     console.log("List length is " + this.length);
+}
+// adds element or elements at the end of the list
+LinkedList.prototype.push = function() {
+    var position=0;
+    currentLastElement = obj;
+    while(position<this.length-1) {
+        currentLastElement=currentLastElement.next;
+        position++;
+    }
+    for(var i=0;i<arguments.length;i++) {
+        currentLastElement.next = {
+            value: arguments[i],
+            next: null
+        };
+        console.log(currentLastElement.value+" element is added to LinkedList");
+        currentLastElement=currentLastElement.next;
+        this.length++;
+    }
+    console.log("Current elements:");
+    for (var i = 0; i < list.length; i++) {
+      console.log(list.get(i));
+    }
 }
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);

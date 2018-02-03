@@ -2,7 +2,7 @@
   you should implement data structure called Linked list (in can be doubly linked or singly linked)
   and all methods that listed below
  */
-function LinkedList() {
+function LinkedList(arr) {
     this.length = 0;
     obj = {next: null};
     for(var i=arr.length;i;--i) {
@@ -13,15 +13,20 @@ function LinkedList() {
     obj=obj.next;
     console.log(obj);
     console.log("List length is " + this.length);
+    this.toString();
 }
 LinkedList.prototype.get= function(value) {
-    var i =0;
-    currentObj = obj;
-    while (i<value){
-        currentObj=currentObj.next;
-        i++;
+    if (value>this.length-1) {
+        console.log('Error: there is no such element');
+    } else {
+        var i =0;
+        currentObj = obj;
+        while (i<value){
+            currentObj=currentObj.next;
+            i++;
+        }
+        return currentObj.value;
     }
-    return currentObj.value;
 }
 // removes last element from the list
 LinkedList.prototype.pop = function() {
@@ -57,12 +62,21 @@ LinkedList.prototype.push = function() {
     }
     list.toString();
 }
+// set an element to specific position
+LinkedList.prototype.set = function(position,value) {
+    var nPosition = 0;
+    currentLastElement = obj;
+        while(nPosition<position) {
+            currentLastElement=currentLastElement.next;
+            nPosition++;
+        }
+}
 // returns string representation of a list
 LinkedList.prototype.toString = function() {
     console.log("Current elements:");
     var arr =[];
-    for (var i = 0; i < list.length; i++) {
-      arr[i]=list.get(i);
+    for (var i = 0; i < this.length; i++) {
+      arr[i]=this.get(i);
     }
     console.log(arr);
 }
@@ -76,9 +90,9 @@ const list = new LinkedList(arr);
  */
 
 // loop on list
-for (let i = 0; i < list.length; i++) {
+/*for (let i = 0; i < list.length; i++) {
   console.log(list.get(i));
-}
+}*/
 
 // forEach on list
 list.forEach((element, index, array) => console.log(element));

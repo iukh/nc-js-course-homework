@@ -36,6 +36,7 @@ LinkedList.prototype.pop = function() {
     this.length--
     console.log(delElement+" element is removed from LinkedList");
     console.log("List length is " + this.length);
+    list.toString();
 }
 // adds element or elements at the end of the list
 LinkedList.prototype.push = function() {
@@ -54,10 +55,16 @@ LinkedList.prototype.push = function() {
         currentLastElement=currentLastElement.next;
         this.length++;
     }
+    list.toString();
+}
+// returns string representation of a list
+LinkedList.prototype.toString = function() {
     console.log("Current elements:");
+    var arr =[];
     for (var i = 0; i < list.length; i++) {
-      console.log(list.get(i));
+      arr[i]=list.get(i);
     }
+    console.log(arr);
 }
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);

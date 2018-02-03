@@ -2,8 +2,29 @@
   you should implement data structure called Linked list (in can be doubly linked or singly linked)
   and all methods that listed below
  */
-const list = new LinkedList(1, 23, 44, 'dsfs', {});
-
+function LinkedList(arr) {
+    this.length = 0;
+    obj = {next: null};
+    for(var i=arr.length;i;--i) {
+        obj.value = arr.pop();
+        obj = {next: obj};
+        this.length++;
+    }
+    obj=obj.next;
+    console.log(obj);
+    console.log("List length is " + this.length);
+}
+LinkedList.prototype.get= function(value) {
+    var i =0;
+    currentObj = obj;
+    while (i<value){
+    currentObj=currentObj.next;
+    i++;
+    }
+    return currentObj.value;
+}
+var arr = [1, 23, 44, 'dsfs', {}];
+const list = new LinkedList(arr);
 /* 
   methods can be implemented in functional style - list should be immutable
   and every operation on list will not modify it, but will return new instance of a list

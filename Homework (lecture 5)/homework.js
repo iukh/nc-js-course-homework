@@ -138,6 +138,18 @@ LinkedList.prototype.reverse = function() {
     this.head =obj;
     this.toString();
 }
+// returns boolean
+LinkedList.prototype.contains = function(value) {
+    var flag =false;
+    var i =0;
+    currentObj = this.head;
+    while (i<this.length){
+    if (currentObj.value == value) { flag=true; break;}
+    currentObj = currentObj.next;
+    i++;
+    }
+    console.log(flag);
+}
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);
 
@@ -178,7 +190,8 @@ console.log("%cTASK: reverse list. METHOD: list.reverse();","color:blue;font-wei
 list.reverse();
 
 // returns boolean
-list.contains('sdfs');
+console.log("%cTASK: Contains, returns boolean. METHOD: list.contains('222');","color:blue;font-weight:bold;")
+list.contains('222');
 // ----- advanced tasks ----- 
 
 list.sort();

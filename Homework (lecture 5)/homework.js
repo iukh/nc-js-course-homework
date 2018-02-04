@@ -11,8 +11,7 @@ function LinkedList(arr) {
         this.length++;
     }
     obj=obj.next;
-    console.log(obj);
-    console.log("List length is " + this.length);
+    console.log("Linked List is created");
     this.toString();
 }
 LinkedList.prototype.get= function(value) {
@@ -43,8 +42,8 @@ LinkedList.prototype.pop = function() {
         currentObj.next = null;
         this.length--
         console.log(delElement+" element is removed from LinkedList");
-        console.log("List length is " + this.length);
-        list.toString();
+        this.toString();
+        this.toString();
     }
 }
 // adds element or elements at the end of the list
@@ -60,20 +59,32 @@ LinkedList.prototype.push = function() {
             value: arguments[i],
             next: null
         };
-        console.log(currentLastElement.value+" element is added to LinkedList");
+        console.log(arguments[i] +" element is added to LinkedList");
         currentLastElement=currentLastElement.next;
         this.length++;
     }
-    list.toString();
+    this.toString();
 }
 // set an element to specific position
 LinkedList.prototype.set = function(position,value) {
-    var nPosition = 0;
-    currentLastElement = obj;
-        while(nPosition<position) {
-            currentLastElement=currentLastElement.next;
-            nPosition++;
+    if (position>this.length) {
+        this.push(value);
+    } else {
+        currentElement = obj;
+        var i=0;
+        while(i<position) {
+            currentElement=currentElement.next;
+            i++;
         }
+        saveCurrentElement = {
+            value: currentElement.value,
+            next: currentElement.next
+        };
+        currentElement.value = value;
+        currentElement.next =saveCurrentElement;
+        this.length++;
+        this.toString();
+    }
 }
 // returns string representation of a list
 LinkedList.prototype.toString = function() {

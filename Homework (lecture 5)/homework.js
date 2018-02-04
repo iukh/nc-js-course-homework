@@ -13,7 +13,7 @@ function LinkedList(arr) {
     }
     obj=obj.next;
     this.head =obj;
-    console.log("Linked List is created");
+    console.log("%cLinked List is created","color:red;");
     this.toString();
 }
 //returns element from position
@@ -150,24 +150,31 @@ const list = new LinkedList(arr);
 list.forEach((element, index, array) => console.log(element));
 
 // set an element to specific position
+console.log("%cTASK: set an element to specific position. METHOD: list.set(1, 'aaaaa')","color:blue; font-weight:bold;")
 list.set(1, 'aaaaa');
 
 // adds element or elements at the end of the list
+console.log("%cTASK: adds element or elements at the end of the list. METHOD: list.push('dsdf', 12);","color:blue;font-weight:bold;")
 list.push('dsdf', 12);
 
 // adds element or elements at the beginning of the list
+console.log("%cTASK: adds element or elements at the beginning of the list. METHOD: list.unshift('sdd', 222);","color:blue;font-weight:bold;")
 list.unshift('sdd', 222);
 
 // removes last element from the list
+console.log("%cTASK: removes last element from the list. METHOD: list.pop();","color:blue;font-weight:bold;")
 list.pop();
 
 // removes first element from the list
+console.log("%cTASK: removes first element from the list. METHOD: list.shift();","color:blue;font-weight:bold;")
 list.shift();
 
 // returns string representation of a list
+console.log("%cTASK: returns string representation of a list. METHOD: list.toString();","color:blue;font-weight:bold;")
 list.toString();
 
 // reverse list
+console.log("%cTASK: reverse list. METHOD: list.reverse();","color:blue;font-weight:bold;")
 list.reverse();
 
 // returns boolean

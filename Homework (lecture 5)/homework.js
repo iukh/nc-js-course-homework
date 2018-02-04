@@ -4,6 +4,7 @@
  */
 function LinkedList(arr) {
     this.length = 0;
+    this.head = null;
     obj = {next: null};
     for(var i=arr.length;i;--i) {
         obj.value = arr.pop();
@@ -11,15 +12,17 @@ function LinkedList(arr) {
         this.length++;
     }
     obj=obj.next;
+    this.head =obj;
     console.log("Linked List is created");
     this.toString();
 }
+//returns element from position
 LinkedList.prototype.get= function(value) {
     if (value>this.length-1) {
         console.log('Error: there is no such element');
     } else {
         var i =0;
-        currentObj = obj;
+        currentObj = this.head;
         while (i<value){
             currentObj=currentObj.next;
             i++;
@@ -43,6 +46,18 @@ LinkedList.prototype.pop = function() {
         this.length--
         console.log(delElement+" element is removed from LinkedList");
         this.toString();
+    }
+}
+// removes first element from the list
+LinkedList.prototype.shift = function() {
+    if (this.length==0){
+        console.log('Error: It is impossible to remove element. The list is empty')
+        } else {
+            var currentElement= this.head;
+            this.head=currentElement.next;
+           currentElement = {};
+            this.length--;
+            this.toString();
     }
 }
 // adds element or elements at the end of the list
@@ -101,14 +116,10 @@ LinkedList.prototype.toString = function() {
     }
     console.log(arr);
 }
+
+
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);
-/* 
-  methods can be implemented in functional style - list should be immutable
-  and every operation on list will not modify it, but will return new instance of a list
-
-  or in imperative style - methods will modify original list
- */
 
 // loop on list
 /*for (let i = 0; i < list.length; i++) {

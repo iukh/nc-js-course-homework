@@ -93,7 +93,7 @@ LinkedList.prototype.set = function(position,value) {
     if (position>this.length) {
         this.push(value);
     } else {
-        currentElement = obj;
+        currentElement = this.head;
         var i=0;
         while(i<position) {
             currentElement=currentElement.next;

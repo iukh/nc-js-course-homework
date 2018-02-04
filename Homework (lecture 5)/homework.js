@@ -43,7 +43,6 @@ LinkedList.prototype.pop = function() {
         this.length--
         console.log(delElement+" element is removed from LinkedList");
         this.toString();
-        this.toString();
     }
 }
 // adds element or elements at the end of the list
@@ -64,6 +63,13 @@ LinkedList.prototype.push = function() {
         this.length++;
     }
     this.toString();
+}
+// adds element or elements at the beginning of the list
+LinkedList.prototype.unshift = function() {
+    for(var i=arguments.length-1;i>=0;--i) {
+            console.log(arguments[i] +" element is added to LinkedList");
+            this.set(0,arguments[i]);
+        }
 }
 // set an element to specific position
 LinkedList.prototype.set = function(position,value) {

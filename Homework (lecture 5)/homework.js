@@ -36,7 +36,7 @@ LinkedList.prototype.pop = function() {
     console.log('Error: It is impossible to remove element. The list is empty')
     } else {
         var position=0;
-        currentObj = obj;
+        currentObj = this.head;
         while(position<this.length-2) {
             currentObj=currentObj.next;
             position++;
@@ -54,9 +54,11 @@ LinkedList.prototype.shift = function() {
         console.log('Error: It is impossible to remove element. The list is empty')
         } else {
             var currentElement= this.head;
+            delElement = currentElement.value;
             this.head=currentElement.next;
-           currentElement = {};
+            currentElement = {};
             this.length--;
+            console.log(delElement+" element is removed from LinkedList");
             this.toString();
     }
 }

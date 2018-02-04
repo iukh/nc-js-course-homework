@@ -65,7 +65,7 @@ LinkedList.prototype.shift = function() {
 // adds element or elements at the end of the list
 LinkedList.prototype.push = function() {
     var position=0;
-    currentLastElement = obj;
+    currentLastElement = this.head;
     while(position<this.length-1) {
         currentLastElement=currentLastElement.next;
         position++;
@@ -118,8 +118,26 @@ LinkedList.prototype.toString = function() {
     }
     console.log(arr);
 }
-
-
+LinkedList.prototype.forEach = function() {}
+//reverse list
+LinkedList.prototype.reverse = function() {
+    var arr =[];
+        for (var i = 0; i < this.length; i++) {
+          arr[i]=this.get(i);
+        }
+    arr.reverse();
+    this.length = 0;
+    this.head = null;
+    obj = {next: null};
+    for(var i=arr.length;i;--i) {
+        obj.value = arr.pop();
+        obj = {next: obj};
+        this.length++;
+    }
+    obj=obj.next;
+    this.head =obj;
+    this.toString();
+}
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);
 
@@ -146,15 +164,14 @@ list.pop();
 // removes first element from the list
 list.shift();
 
-// returns boolean
-list.contains('sdfs');
-
 // returns string representation of a list
 list.toString();
 
 // reverse list
 list.reverse();
 
+// returns boolean
+list.contains('sdfs');
 // ----- advanced tasks ----- 
 
 list.sort();

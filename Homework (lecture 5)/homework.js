@@ -2,12 +2,12 @@
   you should implement data structure called Linked list (in can be doubly linked or singly linked)
   and all methods that listed below
  */
-function LinkedList(arr) {
+function LinkedList() {
     this.length = 0;
     this.head = null;
     obj = {next: null};
-    for(var i=arr.length;i;--i) {
-        obj.value = arr.pop();
+    for(var i=arguments.length;i;--i) {
+        obj.value = arguments[i-1];
         obj = {next: obj};
         this.length++;
     }
@@ -164,8 +164,7 @@ LinkedList.prototype.contains = function(value) {
     }
     console.log(flag);
 }
-var arr = [1, 23, 44, 'dsfs', {}];
-const list = new LinkedList(arr);
+const list = new LinkedList(1, 23, 44, 'dsfs', {});
 
 // loop on list. Use in another methods (e.g. toString)
 /*for (let i = 0; i < list.length; i++) {

@@ -118,7 +118,15 @@ LinkedList.prototype.toString = function() {
     }
     console.log(arr);
 }
-LinkedList.prototype.forEach = function() {}
+// forEach on list
+LinkedList.prototype.forEach = function(callback) {
+    var currentObj= this.head;
+    var arr =[];
+    for (var i = 0; i < this.length; i++) {
+      arr[i]=this.get(i);
+    }
+    return Array.prototype.forEach.call(arr,callback);
+}
 //reverse list
 LinkedList.prototype.reverse = function() {
     var arr =[];
@@ -153,12 +161,13 @@ LinkedList.prototype.contains = function(value) {
 var arr = [1, 23, 44, 'dsfs', {}];
 const list = new LinkedList(arr);
 
-// loop on list
+// loop on list. Use in another methods (e.g. toString)
 /*for (let i = 0; i < list.length; i++) {
   console.log(list.get(i));
 }*/
 
 // forEach on list
+console.log("%cTASK: forEach on list METHOD: list.forEach((element, index, array) => console.log(element));","color:blue; font-weight:bold;")
 list.forEach((element, index, array) => console.log(element));
 
 // set an element to specific position
@@ -194,9 +203,9 @@ console.log("%cTASK: Contains, returns boolean. METHOD: list.contains('222');","
 list.contains('222');
 // ----- advanced tasks ----- 
 
-list.sort();
+//list.sort();
 
 // you can experiment on that with "property descriptors"
-for (i in list) {
-  console.log(i);
-}
+//for (i in list) {
+//  console.log(i);
+//}

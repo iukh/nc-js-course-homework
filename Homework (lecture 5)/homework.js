@@ -43,7 +43,7 @@ LinkedList.prototype.pop = function() {
         }
         delElement =currentObj.value;
         currentObj.next = null;
-        this.length--
+        this.length--;
         console.log(delElement+" element is removed from LinkedList");
         this.toString();
     }
@@ -64,22 +64,28 @@ LinkedList.prototype.shift = function() {
 }
 // adds element or elements at the end of the list
 LinkedList.prototype.push = function() {
-    var position=0;
-    currentLastElement = this.head;
-    while(position<this.length-1) {
-        currentLastElement=currentLastElement.next;
-        position++;
-    }
-    for(var i=0;i<arguments.length;i++) {
-        currentLastElement.next = {
-            value: arguments[i],
-            next: null
+    if (this.length==0) {
+        for(var i=arguments.length-1;i>=0;--i) {
+            this.set(0,arguments[i]);
         };
-        console.log(arguments[i] +" element is added to LinkedList");
-        currentLastElement=currentLastElement.next;
-        this.length++;
+    }else {
+        var position=0;
+        currentLastElement = this.head;
+        while(position<this.length-1) {
+            currentLastElement=currentLastElement.next;
+            position++;
+        }
+        for(var i=0;i<arguments.length;i++) {
+            currentLastElement.next = {
+                value: arguments[i],
+                next: null
+            };
+            console.log(arguments[i] +" element is added to LinkedList");
+            currentLastElement=currentLastElement.next;
+            this.length++;
+        }
+        this.toString();
     }
-    this.toString();
 }
 // adds element or elements at the beginning of the list
 LinkedList.prototype.unshift = function() {

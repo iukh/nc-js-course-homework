@@ -41,11 +41,12 @@ LinkedList.prototype.pop = function() {
             currentObj=currentObj.next;
             position++;
         }
-        delElement =currentObj.value;
+        delElement =currentObj.next.value;
         currentObj.next = null;
         this.length--;
         console.log(delElement+" element is removed from LinkedList");
-        this.toString();
+        console.log(this.toString());
+        return delElement;
     }
 }
 // removes first element from the list
@@ -59,7 +60,8 @@ LinkedList.prototype.shift = function() {
             currentElement = {};
             this.length--;
             console.log(delElement+" element is removed from LinkedList");
-            this.toString();
+            console.log(this.toString());
+            return delElement;
     }
 }
 // adds element or elements at the end of the list
@@ -84,7 +86,7 @@ LinkedList.prototype.push = function() {
             currentLastElement=currentLastElement.next;
             this.length++;
         }
-        this.toString();
+       console.log(this.toString());
     }
 }
 // adds element or elements at the beginning of the list
@@ -112,17 +114,16 @@ LinkedList.prototype.set = function(position,value) {
         currentElement.value = value;
         currentElement.next =saveCurrentElement;
         this.length++;
-        this.toString();
+        console.log(this.toString());
     }
 }
 // returns string representation of a list
 LinkedList.prototype.toString = function() {
-    console.log("Current elements:");
     var arr =[];
     for (var i = 0; i < this.length; i++) {
       arr[i]=this.get(i);
     }
-    console.log(arr);
+    return arr;
 }
 // forEach on list
 LinkedList.prototype.forEach = function(callback) {
@@ -150,7 +151,7 @@ LinkedList.prototype.reverse = function() {
     }
     obj=obj.next;
     this.head =obj;
-    this.toString();
+    return this.toString()
 }
 // returns boolean
 LinkedList.prototype.contains = function(value) {
@@ -162,7 +163,7 @@ LinkedList.prototype.contains = function(value) {
     currentObj = currentObj.next;
     i++;
     }
-    console.log(flag);
+    return flag;
 }
 const list = new LinkedList(1, 23, 44, 'dsfs', {});
 

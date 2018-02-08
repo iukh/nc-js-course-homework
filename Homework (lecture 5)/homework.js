@@ -122,15 +122,19 @@ LinkedList.prototype.toString = function() {
     var arr =[];
     for (var i = 0; i < this.length; i++) {
       arr[i]=this.get(i);
+      if (typeof arr[i] == "string") {
+            arr[i] = '"'+arr[i]+'"';
+      }
       if (typeof arr[i] == "object") {
-          var b = "";
-                for(p in arr[i]) {
-                    b=b+p+": "+arr[i][p];
-                }
-          arr[i]="{"+b+"}";
+        var b = "";
+        for(p in arr[i]) {
+            b=b+p+": "+arr[i][p];
+        }
+        arr[i]="{"+b+"}";
       }
     }
-    return arr.join(', ');
+    stringArray = arr.join(', ')
+    return "["+stringArray+"]";
 }
 // forEach on list
 LinkedList.prototype.forEach = function(callback) {
